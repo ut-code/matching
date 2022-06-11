@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <title>Title</title>
+    <link rel="stylesheet" href=style.css>
   </head>
-  <body>
+  <body class="font">
     <div style="text-align:center">
-      <p style="font-size: 30px;">ドイツ単語</p>
+      <h1 style="font-size: 30px;">ドイツ単語</h1>
+      <img src="pic/castle.jpg" alt="城の画像">
       <p style="font-size: 20px;">デッキ一覧</p>
     </div>
     <% let i=0;
@@ -15,7 +17,9 @@
         <%= deck.deckName %>
         <form method="post" action="/practice">
           <input name="deckId" type="hidden" value= <%= i %> />
-          <button class="button011">始める</button>
+          <div class="button008">
+          <button><a>始める</a></button>
+          </div>
         </form>
       </div>
     <% } %>
