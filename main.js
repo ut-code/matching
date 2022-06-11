@@ -2,6 +2,7 @@ const fs = require("fs");
 const express = require("express");
 const ejs = require("ejs");
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 class Deck{
     deckName;
@@ -40,6 +41,7 @@ app.get("/", (request, response) => {
 app.post("/practice", (request, response) => {
     const template = fs.readFileSync("practice.ejs", "utf-8");
     const html = ejs.render(template, {
+        wordList: deckList[request.body.deckId].wordList,
     });
     response.send(html);
 });
