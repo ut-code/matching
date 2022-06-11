@@ -6,11 +6,20 @@
     <link rel="icon" href="pic/favicon.ico">
     <link rel="stylesheet" href=style.css>
   </head>
+  <header>
+    <!-- <a href="#" onclick="window.history.back(); return false;">直前のページに戻る</a> -->
+    <form method="get" name="a_form" action="/">
+      <!-- <input name="deckId" type="hidden" value= <%= wordList %> /> -->
+      <div class="button008">
+        <a href="#" onclick="document.a_form.submit();">戻る</a>
+      </div>
+    </form>
+  </header>
   <body class="font">
     <div class="box11">
       <div id="item">
         <% let question = wordList.pop() %>
-        <%= question.deutsch %>
+        <p><%= question.deutsch %></p>
       </div>
     </div>
     <div>
@@ -20,7 +29,7 @@
         <button id="eval0" class="eval">△</button>
         <button id="eval1" class="eval">○</button>
       </div>
-  </div>
+    </div>
   <script src="answer.js"></script>
 
   <footer>

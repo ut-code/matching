@@ -1,8 +1,11 @@
+// import question from "practice.ejs";
+
 document.getElementById("see_answer").onclick = () => 
 {
   document.getElementById("evals").style.display = "block";
   document.getElementById("see_answer").style.display = "none";
-  document.getElementById("item").textContent="夜";
+  document.getElementById("item").textContent=question.meaning;
+  // wordList.push(question);
 };
 
 for(let i=0;i<3;i++){
