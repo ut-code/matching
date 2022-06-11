@@ -14,10 +14,10 @@
     <% let i=0;
     for (const deck of deckList) { %>
       <div style="text-align:center;">
-        <form method="post" action="/practice">
+        <form method="post" name="a_form" action="/practice">
           <input name="deckId" type="hidden" value= <%= i %> />
           <div class="button008">
-            <a><%= deck.deckName %> を学習する</a>
+            <a href="#" onclick="document.a_form.submit();"><%= deck.deckName %> を学習する</a>
           </div>
         </form>
       </div>
