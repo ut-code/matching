@@ -17,11 +17,6 @@
     padding: 0;
 }
 
-.button{
-    margin-left:auto;
-    margin-right:auto;
-}
-
 .button011 a {
     position: relative;
     display: flex;
@@ -53,4 +48,8 @@
 .button011 a:hover:before {
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+#item{
+    font-size:70px;
 }
