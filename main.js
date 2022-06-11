@@ -10,4 +10,11 @@ app.get("/", (request, response) => {
     response.send(html);
   });
 
+app.post("/practice", (request, response) => {
+    const template = fs.readFileSync("practice.ejs", "utf-8");
+    const html = ejs.render(template, {
+    });
+    response.send(html);
+  });
+
 app.listen(3000);
