@@ -1,6 +1,16 @@
+const fs = require("fs");
 const express = require("express");
-
+const ejs = require("ejs");
 const app = express();
-app.use(express.static("static"))
+
+const names = ["田中", "鈴木", "佐藤"];
+app.get("/", (request, response) => {
+  const template = fs.readFileSync("practice.ejs", "utf-8");
+  const html = ejs.render(template, {
+    listItems: names,
+  });
+  response.send(html);
+});
+
 
 app.listen(3000);
