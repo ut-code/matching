@@ -17,7 +17,8 @@
     padding: 0;
 }
 
-.button011 a {
+.button008 a {
+    background: #eee;
     position: relative;
     display: flex;
     justify-content: space-around;
@@ -27,28 +28,33 @@
     padding: 10px 25px;
     color: #313131;
     transition: 0.3s ease-in-out;
-    font-weight: 600;
-    background: #eee;
-    overflow:hidden;
+    font-weight: 500;
+    z-index:0;
 }
-.button011 a:before {
+.button008 a:before {
+    content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    width: 150%;
-    height: 500%;
-    content: "";
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-    transform: translateX(-98%) translateY(-25%) rotate(45deg);
-    background: #6bb6ff;
-    opacity: 0.2;
+    bottom: 0;
+    width: 0;
+    display: block;
+    background: #5d627b;
+    transition: .3s;
+    left:0;
 }
-.button011 a:hover:before {
-    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+
+.button008 a:hover {
+    color: #FFF;
 }
+.button008 a:hover:before {
+    width: 100%;
+    z-index: -1;
+}
+
+font {
+    font-family: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    color: #5d627b;
+
 
 #item{
     font-size:70px;
