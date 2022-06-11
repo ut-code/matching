@@ -17,11 +17,6 @@
     padding: 0;
 }
 
-.button{
-    margin-left:auto;
-    margin-right:auto;
-}
-
 .button008 a {
     background: #eee;
     position: relative;
@@ -47,6 +42,7 @@
     transition: .3s;
     left:0;
 }
+
 .button008 a:hover {
     color: #FFF;
 }
@@ -58,4 +54,8 @@
 font {
     font-family: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     color: #5d627b;
+
+
+#item{
+    font-size:70px;
 }
