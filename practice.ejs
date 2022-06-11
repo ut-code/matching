@@ -9,13 +9,19 @@
 <div style="text-align:center">
     <!-- <script src="./practice.js"></script> -->
     <div class="box11">
-      <p>単語を表示させる</p>
+      <p>単語</p>
     </div>
-    <form action="/whatisanswer" method="post">
-      <button id="answer">解答を表示</button>
-    </form>
-    <!-- <script>
-    </script> -->
+    <div>
+      <button id="answer" style="display: block">答えを見る</button>
+      <div id="evals" style="display: none">
+        <button id="eval-1">✕</button>
+        <button id="eval0">△</button>
+        <button id="eval1">○</button>
+      </div>
+    </div>
+    <script src="answer.js"></script>
 </div>
+
+
   </body>
 </html>
