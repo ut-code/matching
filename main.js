@@ -1,10 +1,5 @@
-const http = require("http");
+const express = require("express");
 
-const server = new http.Server();
-
-server.addListener("request", (request, response) => {
-  response.write("Hello World");
-  response.end();
-});
-
-server.listen(3000);
+const app = express();
+app.use(express.static("static"))
+app.listen(3000);
