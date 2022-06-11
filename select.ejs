@@ -5,18 +5,19 @@
     <title>Title</title>
   </head>
   <body>
-<div style="text-align:center">
-    <p style="font-size: 30px;">ドイツ単語</p>
-    <p style="font-size: 20px;">デッキ一覧</p>
-      <% let i=0;
-      for (const deck of deckList) { %>
+    <div style="text-align:center">
+      <p style="font-size: 30px;">ドイツ単語</p>
+      <p style="font-size: 20px;">デッキ一覧</p>
+    </div>
+    <% let i=0;
+    for (const deck of deckList) { %>
+      <div style="text-align:center">
         <%= deck.deckName %>
         <form method="post" action="/practice">
           <input name="deckId" type="hidden" value= <%= i %> />
           <button>始める</button>
         </form>
-        <br>
-      <% } %>
-</div>
+      </div>
+    <% } %>
   </body>
 </html>
