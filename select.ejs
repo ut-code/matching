@@ -8,9 +8,15 @@
 <div style="text-align:center">
     <p style="font-size: 30px;">ドイツ単語</p>
     <p style="font-size: 20px;">デッキ一覧</p>
-    <form method="post" action="/practice">
-      <button>start</button>
-    </form>
+      <% let i=0;
+      for (const deck of deckList) { %>
+        <%= deck.deckName %>
+        <form method="post" action="/practice">
+          <input name="deckId" type="hidden" value= <%= i %> />
+          <button>始める</button>
+        </form>
+        <br>
+      <% } %>
 </div>
   </body>
 </html>
