@@ -10,7 +10,7 @@ for(let i=0;i<3;i++){
     {
         document.getElementById("evals").style.display = "none";
         document.getElementById("see_answer").style.display = "block";
-        document.getElementById("item").textContent="nacht";
+        document.getElementById("item").textContent="Nacht";
     }
 }
 
