@@ -29,3 +29,4 @@ for(let i=0;i<3;i++){
 //   deckList[0].wordList.date = new Date();
 //   deckList[0].wordList.point += 1;
 // };
+
