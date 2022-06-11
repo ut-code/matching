@@ -8,28 +8,27 @@
   <body class="font">
     <div style="text-align:center">
       <h1 style="font-size: 30px;">ドイツ語 単語帳</h1>
-      <img src="pic/castle.jpg" alt="城の画像" style="height:300px;">
+      <img src="pic/castle.jpg" alt="城の画像" style="height:300px; box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);">
       <p style="font-size: 20px;">デッキ一覧</p>
     </div>
     <% let i=0;
     for (const deck of deckList) { %>
-      <div style="text-align:center">
-        <%= deck.deckName %>
+      <div style="text-align:center;">
         <form method="post" action="/practice">
           <input name="deckId" type="hidden" value= <%= i %> />
           <div class="button008">
-          <button><a>始める</a></button>
+            <a><%= deck.deckName %> を学習する</a>
           </div>
         </form>
       </div>
     <% i++;
     } %>
   
-  <%
-    
-  %>
-  <%= todaysproverb %>
-
+  <blockquote>
+    <%= todaysproverb %>
+    <br>
+    <%= todaysproverbTL %>
+  </blockquote>
   <footer>
     <p class="text-center text-muted">© Copyright 2022 ut.code();</p>
   </footer>

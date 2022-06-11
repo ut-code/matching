@@ -1,7 +1,6 @@
 .box11{
-    /* text-align: center; */
-    width: 40em;
-    height: 20em;
+    width: 20em;
+    height: 10em;
     padding: 0.5em 1em;
     margin: 2em 0;
     color: #5d627b;
@@ -26,7 +25,7 @@
     margin: 0 auto;
     max-width: 240px;
     padding: 10px 25px;
-    color: #313131;
+    color: #464646;
     transition: 0.3s ease-in-out;
     font-weight: 500;
     z-index:0;
@@ -38,7 +37,7 @@
     bottom: 0;
     width: 0;
     display: block;
-    background: #5d627b;
+    background: #44495e;
     transition: .3s;
     left:0;
 }
@@ -54,8 +53,43 @@
 .font {
     font-family: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     color: #5d627b;
+    background-color: #ffffff;
 }
 
 #item{
     font-size:70px;
+}
+
+blockquote {
+    position: relative;
+    padding: 10px 15px 10px 50px;
+    box-sizing: border-box;
+    font-style: italic;
+    border: solid 2px #464646;
+    color: #464646;
+}
+
+blockquote:before{
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    content: "“";
+    font-family: sans-serif;
+    color: #5d627b;
+    font-size: 90px;
+    line-height: 1;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
 }

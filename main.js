@@ -31,9 +31,7 @@ deckList[0].wordList.push(new Word("Nacht", "night"));
 deckList[0].wordList.push(new Word("Morgen", "morning"));
 //
 
-// ドイツのことわざをランダムで表示
-// const text = fs.readFileSync("text/proverb.txt", 'utf-8');
-// const lines = text.toString().split('¥n');
+// ドイツのことわざを読み込む
 const readline = require('readline');
 const rs = fs.createReadStream('text/proverb.txt');
 const rl = readline.createInterface({ input: rs });
@@ -44,15 +42,18 @@ rl.on("line", (data) => {rlList.push(data);});
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
     
+    // ドイツのことわざをランダムで表示
     proverbNo = Math.floor(Math.random() * rlList.length);
     if (proverbNo % 2 == 1) proverbNo -= 1;
     console.log(proverbNo);
     let todaysproverb = rlList[proverbNo];
+    let todaysproverbTL = rlList[proverbNo + 1];
 
     // デッキリストを送信
     const html = ejs.render(template, {
         deckList: deckList,
         todaysproverb,
+        todaysproverbTL
     });
     
     response.send(html);
