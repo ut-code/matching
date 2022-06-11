@@ -5,6 +5,15 @@ document.getElementById("see_answer").onclick = () =>
   document.getElementById("item").textContent="夜";
 };
 
+for(let i=0;i<3;i++){
+    document.getElementsByClassName("eval")[i].onclick = () =>
+    {
+        document.getElementById("evals").style.display = "none";
+        document.getElementById("see_answer").style.display = "block";
+        document.getElementById("item").textContent="nacht";
+    }
+}
+
 // document.getElementById("eval-1").onclick = () => 
 // {
 //   deckList[0].wordList.date = new Date();
