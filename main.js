@@ -49,7 +49,17 @@ function readDecks(txtfile) {
 }
 
 // text/decks内を読み込む
-// 
+// 関数が使えなかったのでとりあえずただ読み込んだ
+const rs0 = fs.createReadStream('text/decks/noun_1A.txt');
+const rl0 = readline.createInterface({ input: rs0 });
+let rlList0 = [];
+rl0.on("line", (data) => {rlList0.push(data);});
+
+deckList.push(new Deck("noun_1A"));
+for (let i=0; i<rl0.length/2; i++)
+{
+    deckList[deckList.length - 1].wordList.push(new Word(rlList0[i*2], rlList0[i*2 + 1]));
+} 
 
 // ドイツのことわざを読み込む
 const rs = fs.createReadStream('text/proverb.txt');
