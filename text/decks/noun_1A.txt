@@ -1,0 +1,200 @@
+r Abend
+晩     
+r Anfang
+始め  
+e Antwort
+答え  
+e Arbeit
+仕事 
+e Art
+種類  
+r Arzt / e Ärztin
+医者 
+e Aufgabe
+課題  
+s Auge
+目  
+s Auto
+自動車
+s Beispiel
+例  
+s Bild
+絵  
+r Blick
+視線  
+s Buch
+本  
+(s) Deutsch
+ドイツ語  
+(s) Deutschland
+ドイツ  
+s Ding
+物  
+Eltern
+両親〖複数〗
+s Ende
+終わり  
+r Euro
+ユーロ  
+(s) Europa
+ヨーロッパ  
+e Familie
+家族  
+r Film
+映画  
+e Firma
+会社  
+e Frage
+質問  
+e Frau
+女性  
+r Freund / e Freundin
+友達  
+r Gast
+客（ゲスト）  
+s Geld
+金  
+e Geschichte
+歴史  
+e Gesellschaft
+社会  
+s Gespräch
+会話  
+r Grund
+理由  
+e Gruppe
+グループ  
+e Hand
+手  
+s Haus
+家  
+r Herr
+…氏  
+e Hilfe
+助け  
+e Information
+情報  
+s Interesse
+興味  
+s Internet
+インターネット  
+s Jahr
+年  
+s Kind
+子供  
+e Kirche
+教会  
+e Klasse
+クラス  
+r Kopf
+頭  
+r Krieg
+戦争  
+s Land
+国  
+s Leben
+生活  
+Leute
+人々〖複数〗 
+e Lösung
+解決  
+s Mädchen
+女の子  
+s Mal
+回  
+r Mann
+男  
+r Mensch
+人間  
+r Meter
+メートル  
+e Minute
+分  
+r Monat
+月（暦の）  
+e Mutter
+母  
+r Name
+名前  
+r November
+11月  
+r Oktober
+10月  
+r Ort
+場所  
+r Platz
+広場  
+e Polizei
+警察  
+r Preis
+値段  
+s Problem
+問題  
+s Programm
+プログラム  
+s Prozent
+パーセント  
+r Raum
+部屋  
+e Regierung
+政府  
+e Rolle
+役割  
+e Sache
+物  
+e Schule
+学校  
+r Schüler / e Schülerin
+生徒 
+e Seite
+面  
+r Sohn
+息子  
+e Sprache
+言語  
+e Stadt
+都市  
+e Stelle
+位置  
+e Straße
+通り  
+e Stunde
+時間（1時間）  
+r Tag
+日  
+r Teil
+部分  
+r Text
+テキスト  
+s Thema
+テーマ  
+e Tochter
+娘  
+e Uhr
+時計  
+r Vater
+父  
+s Wasser
+水  
+r Weg
+道  
+e Welt
+世界  
+s Werk
+作品  
+e Wirtschaft
+経済  
+e Woche
+週  
+e Wohnung
+住居  
+s Wort
+語  
+e Zahl
+数  
+e Zeit
+時間  
+s Ziel
+目的  
+r Zug
+列車  
