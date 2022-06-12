@@ -37,16 +37,35 @@ deckList[0].wordList.push(new Word("Morgen", "morning"));
 deckList.push(new Deck("test2"));
 //
 
-// ドイツのことわざを読み込む
+// .txt形式のデッキを読み込む
 const readline = require('readline');
 const { response } = require("express");
+
+function readDecks(txtfile) {
+    let rs = fs.createReadStream(txtfile);
+    let rl = readline.createInterface({ input: rs });
+    let rlList = [];
+    rl.on("line", (data) => {rlList.push(data);});
+}
+
+// text/decks内を読み込む
+// 
+
+// ドイツのことわざを読み込む
 const rs = fs.createReadStream('text/proverb.txt');
 const rl = readline.createInterface({ input: rs });
 let proverbNo;
 let rlList = [];
 rl.on("line", (data) => {rlList.push(data);});
 
+
+// let proverbList = readDecks('text/proverb.txt');
+// console.log(proverbList.length);
+
+let deckNumber=0;//現在見ているデッキの番号を格納
+
 let deckId=0;//現在見ているデッキのidを格納
+
 
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
@@ -54,7 +73,7 @@ app.get("/", (request, response) => {
     // ドイツのことわざをランダムで表示
     proverbNo = Math.floor(Math.random() * rlList.length);
     if (proverbNo % 2 == 1) proverbNo -= 1;
-    console.log(proverbNo);
+    // console.log(proverbNo);
     let todaysproverb = rlList[proverbNo];
     let todaysproverbTL = rlList[proverbNo + 1];
 
