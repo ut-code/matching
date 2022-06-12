@@ -4,7 +4,7 @@
 
 スクリーンショット
 
-<img width=200 alt="スクリーンショット" src="https://drive.google.com/file/d/1xIy7D9101Ri7tvyodzdw3XePE-INQKYG/view?usp=sharing">
+<img width=200 alt="スクリーンショット" src="https://cdn.discordapp.com/attachments/886090757604257813/985461542126514186/image.png">
 
 URL：https://matching-r3vc.onrender.com
 
