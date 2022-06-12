@@ -73,18 +73,17 @@ rl.on("line", (data) => {rlList.push(data);});
 
 //let DeckId=0;//現在見ているデッキのidを格納
 
-let readswitch=0;
+let readswitch=false;//rlListをdeckに読み込むための変数
 
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
     
 
-    if(readswitch===0){
-        for (let i=0; i<rlList0.length/2; i++)
-        {
+    if(readswitch===false){
+        for (let i=0; i<rlList0.length/2; i++){
             deckList[deckList.length - 1].wordList.push(new Word(rlList0[i*2], rlList0[i*2 + 1]));
         }
-        readswitch=1;
+        readswitch=true;
     }
 
     // ドイツのことわざをランダムで表示
