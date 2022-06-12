@@ -46,7 +46,7 @@ let proverbNo;
 let rlList = [];
 rl.on("line", (data) => {rlList.push(data);});
 
-let deckNumber=0;//現在見ているデッキの番号を格納
+let deckId=0;//現在見ているデッキのidを格納
 
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
@@ -73,7 +73,7 @@ app.post("/practice", (request, response) => {
     console.log(request.body.deckId);
     // デッキ内の単語データを送信　→ deckIdのみ送信に変更
     const html = ejs.render(template, {
-        deckId: request.body.deckId,
+        deckId: deckId,
     });
     response.send(html);
 });
