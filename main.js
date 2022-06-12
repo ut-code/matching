@@ -9,6 +9,10 @@ app.use(express.json());
 class Deck{
     deckName;
     wordList = [];
+
+    constructor(name){
+        this.deckName = name;
+    }
 };
 
 class Word{
@@ -26,10 +30,11 @@ class Word{
 let deckList = [];
 
 //test用
-deckList.push(new Deck());
-deckList[0].deckName = "test";
+deckList.push(new Deck("test"));
 deckList[0].wordList.push(new Word("Nacht", "night"));
 deckList[0].wordList.push(new Word("Morgen", "morning"));
+
+deckList.push(new Deck("test2"));
 //
 
 // .txt形式のデッキを読み込む
@@ -53,10 +58,14 @@ let proverbNo;
 let rlList = [];
 rl.on("line", (data) => {rlList.push(data);});
 
+
 // let proverbList = readDecks('text/proverb.txt');
 // console.log(proverbList.length);
 
 let deckNumber=0;//現在見ているデッキの番号を格納
+
+let deckId=0;//現在見ているデッキのidを格納
+
 
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
@@ -79,11 +88,11 @@ app.get("/", (request, response) => {
 });
 
 app.post("/practice", (request, response) => {
-    deckNumber=request.body.deckId;
     const template = fs.readFileSync("practice.ejs", "utf-8");
+    console.log(request.body.deckId);
     // デッキ内の単語データを送信　→ deckIdのみ送信に変更
     const html = ejs.render(template, {
-        deckId: request.body.deckId,
+        deckId: deckId,
     });
     response.send(html);
 });
@@ -105,9 +114,13 @@ app.post("/getword", (request, response) => {
 });
 
 app.post("/eval_response",(request,response)=>{
-    let eval=request.body.point;//i=0 => ×  i=1 => △  i=2 => 〇
-    let point=deckList[deckNumber].wordList[wordList.length-1].point;
-    point=(eval===2?point+1:0);
+    const eval=request.body.point;//i=0 => ×  i=1 => △  i=2 => 〇
+    const deckId = request.body.deckId;
+    const wordId = request.body.wordId;
+    if(eval===2){
+        deckList[deckId].wordList[wordId].point++;
+    }
+    response.send(0);
 });
 
 app.listen(3000);

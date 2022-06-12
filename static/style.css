@@ -1,7 +1,7 @@
 .box11{
     /* text-align: center; */
-    width: 60em;
-    height: 20em;
+    width: 25em;
+    height: 7em;
     padding: 0.5em 1em;
     margin: 2em 0;
     color: #5d627b;
@@ -11,6 +11,7 @@
     text-align:center;
     margin-left:auto;
     margin-right:auto;
+    border-radius: 5px;
 }
 .box11 p {
     margin: 0; 
@@ -65,17 +66,41 @@
     width: 50px;
     height: 50px;
     font-size: 20px;
+    border-radius: 5px;
+    outline: none;
 }
 
 #see_answer{
     height: 50px;
     width: 100px;
-    font-size:40px
+    font-size:15px;
+}
+#eval-1{ 
+    position: relative;right: 5px;
+}
+
+#eval-1:hover{
+    background-color: #333c5e;
 }
 
 #eval1{
     font-size: 40px;
+    position: relative;top: 8px;left: 5px;
 }
+
+#eval1:hover{
+    background-color: #333c5e;
+}
+
+#eval0{
+    position: relative;top: 1px;
+    font-weight: bold;
+}
+
+#eval0:hover{
+    background-color: #333c5e;
+}
+
 blockquote {
     position: relative;
     padding: 10px 15px 10px 50px;
