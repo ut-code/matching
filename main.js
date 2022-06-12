@@ -30,12 +30,21 @@ class Word{
 let deckList = [];
 
 //test用
-deckList.push(new Deck("test"));
-deckList[0].wordList.push(new Word("Nacht", "night"));
-deckList[0].wordList.push(new Word("Morgen", "morning"));
+deckList.push(new Deck("noun_Good..."));
+deckList[0].wordList.push(new Word("e Nacht", "night"));
+deckList[0].wordList.push(new Word("r Morgen", "morning"));
 
-deckList.push(new Deck("test2"));
+deckList.push(new Deck("noun_number"));
+deckList[1].wordList.push(new Word("null", "0"));
+deckList[1].wordList.push(new Word("ein", "1"));
 deckList[1].wordList.push(new Word("zwei", "2"));
+deckList[1].wordList.push(new Word("drei", "3"));
+deckList[1].wordList.push(new Word("vier", "4"));
+deckList[1].wordList.push(new Word("fünf", "5"));
+deckList[1].wordList.push(new Word("sechs", "6"));
+deckList[1].wordList.push(new Word("sieben", "7"));
+deckList[1].wordList.push(new Word("acht", "8"));
+deckList[1].wordList.push(new Word("neun", "9"));
 //
 
 // .txt形式のデッキを読み込む
