@@ -43,7 +43,7 @@
 }
 
 .button008 a:hover {
-    color: #FFF;
+    color: #ffffff;
 }
 .button008 a:hover:before {
     width: 100%;
@@ -93,3 +93,18 @@ blockquote cite {
     color: #888888;
     font-size: 0.9em;
 }
+
+.maru {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-flow: column; 
+    vertical-align: top;
+    width: 120px;
+    height: 120px;
+    font-size: 3em;
+    line-height: 1.5em;
+    color: #ffffff;
+    border: 40px solid #464646;
+  }
