@@ -43,14 +43,6 @@ setproblem(0); //最初の問題表示
 
 // import question from "practice.ejs";
 
-document.getElementById("see_answer").onclick = () => 
-{
-  document.getElementById("evals").style.display = "block";
-  document.getElementById("see_answer").style.display = "none";
-  document.getElementById("item").textContent=question.meaning;
-  // wordList.push(question);
-};
-
 for(let i=0;i<3;i++){
     document.getElementsByClassName("eval")[i].onclick = async() =>
     {
@@ -82,3 +74,15 @@ for(let i=0;i<3;i++){
 //   deckList[0].wordList.date = new Date();
 //   deckList[0].wordList.point += 1;
 // };
+
+
+
+window.onkeyup = keyup;
+// document.body.onkeyup = keyup;
+function keyup(e)
+{
+  if (e.code == "Space") alert(e.code);
+  else if (e.code == "Digit1") alert(e.code);
+  else if (e.code == "Digit2") alert(e.code);
+  else if (e.code == "Digit3") alert(e.code);
+}
