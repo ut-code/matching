@@ -100,9 +100,11 @@ app.get("/", (request, response) => {
 
 app.post("/practice", (request, response) => {
     const template = fs.readFileSync("practice.ejs", "utf-8");
+    const deckId = request.body.deckId;
     // デッキ内の単語データを送信　→ deckIdのみ送信に変更
     const html = ejs.render(template, {
-        deckId: request.body.deckId,
+        deckId: deckId,
+        numberOfWords: deckList[deckId].wordList.length
     });
     response.send(html);
 });
