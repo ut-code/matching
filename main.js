@@ -35,7 +35,8 @@ deckList[0].wordList.push(new Word("Nacht", "night"));
 deckList[0].wordList.push(new Word("Morgen", "morning"));
 
 deckList.push(new Deck("test2"));
-deckList[1].wordList.push(new Word("zwei", "2"));
+V = ["a","b","c","d","e","f"];
+for(let i=0;i<6;i++) deckList[1].wordList.push(new Word(V[i],"ans"));
 //
 
 // .txt形式のデッキを読み込む
