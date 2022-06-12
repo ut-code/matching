@@ -35,6 +35,7 @@ deckList[0].wordList.push(new Word("Nacht", "night"));
 deckList[0].wordList.push(new Word("Morgen", "morning"));
 
 deckList.push(new Deck("test2"));
+deckList[1].wordList.push(new Word("zwei", "2"));
 //
 
 // .txt形式のデッキを読み込む
@@ -62,9 +63,9 @@ rl.on("line", (data) => {rlList.push(data);});
 // let proverbList = readDecks('text/proverb.txt');
 // console.log(proverbList.length);
 
-let deckNumber=0;//現在見ているデッキの番号を格納
+//let deckNumber=0;//現在見ているデッキの番号を格納
 
-let deckId=0;//現在見ているデッキのidを格納
+//let DeckId=0;//現在見ているデッキのidを格納
 
 
 app.get("/", (request, response) => {
@@ -89,10 +90,9 @@ app.get("/", (request, response) => {
 
 app.post("/practice", (request, response) => {
     const template = fs.readFileSync("practice.ejs", "utf-8");
-    console.log(request.body.deckId);
     // デッキ内の単語データを送信　→ deckIdのみ送信に変更
     const html = ejs.render(template, {
-        deckId: deckId,
+        deckId: request.body.deckId,
     });
     response.send(html);
 });
@@ -120,7 +120,7 @@ app.post("/eval_response",(request,response)=>{
     if(eval===2){
         deckList[deckId].wordList[wordId].point++;
     }
-    response.send(0);
+    response.end();
 });
 
 app.listen(3000);

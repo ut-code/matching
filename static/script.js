@@ -1,5 +1,5 @@
 //htmlから渡した変数
-const deckId = document.getElementById("deckId").title;
+let deckId = document.getElementById("deckId").title;
 
 //出す問題を選ぶ関数（後で作る）
 function chooseWordId(){
@@ -58,7 +58,7 @@ setproblem(); //最初の問題表示
 
 
 // import question from "practice.ejs";
-
+/*
 for(let i=0;i<3;i++){
     document.getElementsByClassName("eval")[i].onclick = async() =>
     {
@@ -74,7 +74,7 @@ for(let i=0;i<3;i++){
         });
     }
 }
-
+*/
 // document.getElementById("eval-1").onclick = () => 
 // {
 //   deckList[0].wordList.date = new Date();
