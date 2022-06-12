@@ -1,4 +1,4 @@
-console.log("working properly");
+// console.log("working properly");
 
 $(function(){
     $('a.clickToolTip').click(function(){
