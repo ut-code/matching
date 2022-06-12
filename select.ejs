@@ -20,7 +20,8 @@
       <div style="text-align:center;">
         <form method="post" name="a_form" action="/practice">
           <input name="deckId" type="hidden" value= <%= i %> />
-          <button><%= deck.deckName %> を学習する</button>
+            <p><a href="#"><button id="learn"><%= deck.deckName %> を学習する</button></a></p>
+          </div>
         </form>
       </div>
     <% i++;

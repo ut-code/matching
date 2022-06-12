@@ -56,11 +56,7 @@ const rl0 = readline.createInterface({ input: rs0 });
 let rlList0 = [];
 rl0.on("line", (data) => {rlList0.push(data);});
 
-deckList.push(new Deck("noun_1A"));
-for (let i=0; i<rl0.length/2; i++)
-{
-    deckList[deckList.length - 1].wordList.push(new Word(rlList0[i*2], rlList0[i*2 + 1]));
-} 
+deckList.push(new Deck("noun_1A")); 
 
 // ドイツのことわざを読み込む
 const rs = fs.createReadStream('text/proverb.txt');
@@ -77,10 +73,19 @@ rl.on("line", (data) => {rlList.push(data);});
 
 //let DeckId=0;//現在見ているデッキのidを格納
 
+let readswitch=false;//rlListをdeckに読み込むための変数
 
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
     
+
+    if(readswitch===false){
+        for (let i=0; i<rlList0.length/2; i++){
+            deckList[deckList.length - 1].wordList.push(new Word(rlList0[i*2], rlList0[i*2 + 1]));
+        }
+        readswitch=true;
+    }
+
     // ドイツのことわざをランダムで表示
     proverbNo = Math.floor(Math.random() * rlList.length);
     if (proverbNo % 2 == 1) proverbNo -= 1;
