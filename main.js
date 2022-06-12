@@ -41,7 +41,7 @@ let proverbNo;
 let rlList = [];
 rl.on("line", (data) => {rlList.push(data);});
 
-let deckNumber=0;//現在見ているデッキの番号を格納
+let deckId=0;//現在見ているデッキのidを格納
 
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
@@ -64,11 +64,11 @@ app.get("/", (request, response) => {
 });
 
 app.post("/practice", (request, response) => {
-    deckNumber=request.body.deckId;
+    deckId=request.body.deckId;//今見ているデッキを更新
     const template = fs.readFileSync("practice.ejs", "utf-8");
     // デッキ内の単語データを送信　→ deckIdのみ送信に変更
     const html = ejs.render(template, {
-        deckId: request.body.deckId,
+        deckId: deckId,
     });
     response.send(html);
 });
@@ -91,7 +91,7 @@ app.post("/getword", (request, response) => {
 
 app.post("/eval_response",(request,response)=>{
     let eval=request.body.point;//i=0 => ×  i=1 => △  i=2 => 〇
-    let point=deckList[deckNumber].wordList[wordList.length-1].point;
+    let point=deckList[deckId].wordList[wordList.length-1].point;
     point=(eval===2?point+1:0);
 });
 
