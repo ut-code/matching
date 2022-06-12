@@ -76,7 +76,7 @@
     font-size:15px;
 }
 #eval-1{ 
-    position: relative;right: 5px;
+    position: relative;right: 15px;bottom: 10px;
 }
 
 #eval-1:hover{
@@ -85,7 +85,7 @@
 
 #eval1{
     font-size: 40px;
-    position: relative;top: 8px;left: 5px;
+    position: relative;left: 15px;bottom: 2px;
 }
 
 #eval1:hover{
@@ -93,7 +93,7 @@
 }
 
 #eval0{
-    position: relative;top: 1px;
+    position: relative;bottom: 9px;
     font-weight: bold;
 }
 
