@@ -81,7 +81,7 @@ window.onkeyup = keyup;
 // document.body.onkeyup = keyup;
 function keyup(e)
 {
-  if (e.code == "Space") alert(e.code);
+  if (e.code == "Space") setanswer();
   else if (e.code == "Digit1") alert(e.code);
   else if (e.code == "Digit2") alert(e.code);
   else if (e.code == "Digit3") alert(e.code);
