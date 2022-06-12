@@ -141,8 +141,8 @@ window.onkeyup = keyup;
 // document.body.onkeyup = keyup;
 function keyup(e)
 {
-  if (e.code == "Space") see_answer_func();
-  else if (e.code == "Digit1") evalfunc(0);
-  else if (e.code == "Digit2") evalfunc(1);
-  else if (e.code == "Digit3") evalfunc(2);
+  if (e.code == "Space" && document.getElementById("see_answer").style.display === "block") see_answer_func();
+  else if (e.code == "Digit1" && document.getElementById("evals").style.display === "block") evalfunc(0);
+  else if (e.code == "Digit2" && document.getElementById("evals").style.display === "block") evalfunc(1);
+  else if (e.code == "Digit3" && document.getElementById("evals").style.display === "block") evalfunc(2);
 }
