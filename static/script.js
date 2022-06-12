@@ -1,14 +1,48 @@
+const inf = 100000000;
+
 //htmlから渡した変数
 let deckId = document.getElementById("deckId").title;
 const numberOfWords = document.getElementById("numberOfWords").title;
 
-//出す問題を選ぶ関数（とりあえず一様ランダム）
-function chooseWordId(){
-    const ret = Math.floor(Math.random() * numberOfWords);
+let wordId = -1; //問題のIDを保持しておく変数
+
+//評価を記録しておく配列
+let eval = [];
+for(let i=0;i<numberOfWords;i++) eval.push(0);
+
+//最近出た問題を記録しておく配列(queue)
+const lengthOfRecord = 5;
+let record = [];
+for(let i=0;i<lengthOfRecord;i++) record.push(-1);
+let pointerOfRecord = 0;
+
+//min関数
+function min(vector){
+    let ret = vector[0];
+    for(const x of vector){
+        if(x<ret) ret = x;
+    }
     return ret;
 }
-//問題のIDを保持しておく変数
-let wordId = chooseWordId();
+
+//出す問題を選ぶ関数（評価が最も低いものから出す。ただし直近(lengthOfRecord)回以内に出た問題は、問題数が十分にあるならば出さない）
+function chooseWordId(){
+    //直近に出た問題の評価値に、一時的にinfを加算する
+    let temp = [];
+    for(let i=0;i<numberOfWords;i++) temp[i] = eval[i];
+    for(const i of record){
+        if(i!==-1) temp[i] += inf;
+    }
+    //評価値が最小の問題のリストを作る
+    const minOfEval = min(temp);
+    let choiceList = [];
+    for(let i=0;i<numberOfWords;i++){
+        if(temp[i]===minOfEval) choiceList.push(i);
+    }
+    //作ったリストからランダムで1つ選ぶ
+    const x = Math.floor(Math.random() * choiceList.length);
+    return choiceList[x];
+}
 
 //問題を表示する関数
 async function setproblem(){
@@ -35,8 +69,12 @@ for(let i=0;i<3;i++){
     document.getElementsByClassName("eval")[i].onclick = async() =>
     {
         //評価を記録
-        const body = new URLSearchParams({deckId: deckId, wordId: wordId, point: i});
-        await fetch("/eval_response", {method: "post", body: body});
+        eval[wordId] += i;
+
+        //出た問題の番号を記録
+        record[pointerOfRecord] = wordId;
+        pointerOfRecord++;
+        pointerOfRecord %= lengthOfRecord;
 
         //次の問題を出す
         wordId = chooseWordId();
@@ -49,7 +87,9 @@ for(let i=0;i<3;i++){
     }
 }
 
-setproblem(); //最初の問題表示
+//最初の問題表示
+wordId = chooseWordId();
+setproblem();
 
 
 
