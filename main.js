@@ -4,6 +4,7 @@ const ejs = require("ejs");
 const app = express();
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 class Deck{
     deckName;
@@ -39,6 +40,8 @@ let proverbNo;
 let rlList = [];
 rl.on("line", (data) => {rlList.push(data);});
 
+let deckNumber=0;//現在見ているデッキの番号を格納
+
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
     
@@ -60,12 +63,19 @@ app.get("/", (request, response) => {
 });
 
 app.post("/practice", (request, response) => {
+    deckNumber=request.body.deckId;
     const template = fs.readFileSync("practice.ejs", "utf-8");
     // デッキ内の単語データを送信
     const html = ejs.render(template, {
-        wordList: deckList[request.body.deckId].wordList,
+        wordList: deckList[deckNumber].wordList,
     });
     response.send(html);
+});
+
+app.post("/eval_response",(request,response)=>{
+    let eval=request.body.point;//i=0 => ×  i=1 => △  i=2 => 〇
+    let point=deckList[deckNumber].wordList[wordList.length-1].point;
+    point=(eval===2?point+1:0);
 });
 
 app.listen(3000);

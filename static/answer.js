@@ -9,11 +9,18 @@ document.getElementById("see_answer").onclick = () =>
 };
 
 for(let i=0;i<3;i++){
-    document.getElementsByClassName("eval")[i].onclick = () =>
+    document.getElementsByClassName("eval")[i].onclick = async() =>
     {
         document.getElementById("evals").style.display = "none";
         document.getElementById("see_answer").style.display = "block";
         document.getElementById("item").textContent="Nacht";
+
+        const json = JSON.stringify({ eval: i});//i=0 => ×  i=1 => △  i=2 => 〇
+        const response = await fetch("/eval_response", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: json,
+        });
     }
 }
 
