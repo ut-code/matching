@@ -1,9 +1,11 @@
 //htmlから渡した変数
-const deckId = document.getElementById("deckId").title;
+let deckId = document.getElementById("deckId").title;
+const numberOfWords = document.getElementById("numberOfWords").title;
 
-//出す問題を選ぶ関数（後で作る）
+//出す問題を選ぶ関数（とりあえず一様ランダム）
 function chooseWordId(){
-    return 0;
+    const ret = Math.floor(Math.random() * numberOfWords);
+    return ret;
 }
 //問題のIDを保持しておく変数
 let wordId = chooseWordId();
@@ -58,7 +60,7 @@ setproblem(); //最初の問題表示
 
 
 // import question from "practice.ejs";
-
+/*
 for(let i=0;i<3;i++){
     document.getElementsByClassName("eval")[i].onclick = async() =>
     {
@@ -74,7 +76,7 @@ for(let i=0;i<3;i++){
         });
     }
 }
-
+*/
 // document.getElementById("eval-1").onclick = () => 
 // {
 //   deckList[0].wordList.date = new Date();

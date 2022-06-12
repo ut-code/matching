@@ -35,6 +35,7 @@ deckList[0].wordList.push(new Word("Nacht", "night"));
 deckList[0].wordList.push(new Word("Morgen", "morning"));
 
 deckList.push(new Deck("test2"));
+deckList[1].wordList.push(new Word("zwei", "2"));
 //
 
 // .txt形式のデッキを読み込む
@@ -49,7 +50,13 @@ function readDecks(txtfile) {
 }
 
 // text/decks内を読み込む
-// 
+// 関数が使えなかったのでとりあえずただ読み込んだ
+const rs0 = fs.createReadStream('text/decks/noun_1A.txt');
+const rl0 = readline.createInterface({ input: rs0 });
+let rlList0 = [];
+rl0.on("line", (data) => {rlList0.push(data);});
+
+deckList.push(new Deck("noun_1A")); 
 
 // ドイツのことわざを読み込む
 const rs = fs.createReadStream('text/proverb.txt');
@@ -62,14 +69,23 @@ rl.on("line", (data) => {rlList.push(data);});
 // let proverbList = readDecks('text/proverb.txt');
 // console.log(proverbList.length);
 
-let deckNumber=0;//現在見ているデッキの番号を格納
+//let deckNumber=0;//現在見ているデッキの番号を格納
 
-let deckId=0;//現在見ているデッキのidを格納
+//let DeckId=0;//現在見ているデッキのidを格納
 
+let readswitch=false;//rlListをdeckに読み込むための変数
 
 app.get("/", (request, response) => {
     const template = fs.readFileSync("select.ejs", "utf-8");
     
+
+    if(readswitch===false){
+        for (let i=0; i<rlList0.length/2; i++){
+            deckList[deckList.length - 1].wordList.push(new Word(rlList0[i*2], rlList0[i*2 + 1]));
+        }
+        readswitch=true;
+    }
+
     // ドイツのことわざをランダムで表示
     proverbNo = Math.floor(Math.random() * rlList.length);
     if (proverbNo % 2 == 1) proverbNo -= 1;
@@ -89,10 +105,11 @@ app.get("/", (request, response) => {
 
 app.post("/practice", (request, response) => {
     const template = fs.readFileSync("practice.ejs", "utf-8");
-    console.log(request.body.deckId);
+    const deckId = request.body.deckId;
     // デッキ内の単語データを送信　→ deckIdのみ送信に変更
     const html = ejs.render(template, {
         deckId: deckId,
+        numberOfWords: deckList[deckId].wordList.length
     });
     response.send(html);
 });
@@ -120,7 +137,7 @@ app.post("/eval_response",(request,response)=>{
     if(eval===2){
         deckList[deckId].wordList[wordId].point++;
     }
-    response.send(0);
+    response.end();
 });
 
 app.listen(3000);
