@@ -130,6 +130,7 @@ app.post("/getword", (request, response) => {
     response.send(res);
 });
 
+/*評価はscript.js内で保持するようにしたので、これは使いません
 app.post("/eval_response",(request,response)=>{
     const eval=request.body.point;//i=0 => ×  i=1 => △  i=2 => 〇
     const deckId = request.body.deckId;
@@ -139,5 +140,6 @@ app.post("/eval_response",(request,response)=>{
     }
     response.end();
 });
+*/
 
 app.listen(3000);
