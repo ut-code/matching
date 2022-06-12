@@ -21,9 +21,7 @@
       </div>
       </div>
     <div>
-      <div class="button008">
       <button id="see_answer" style="display: block; margin-left:auto; margin-right:auto;">答えを見る</button>
-    </div>
       <div id="evals" style="display: none; text-align: center;">
         <button id="eval-1" class="eval">✕</button>
         <button id="eval0" class="eval">△</button>
@@ -32,6 +30,7 @@
   </div>
 
   <div id="deckId" title= <%= deckId %> />
+  <script src="script.js"></script>
 
   <p style="line-height: 80px;"></p>
 
@@ -46,6 +45,17 @@
     <p class="text-center text-muted">© Copyright 2022 ut.code();</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    window.onkeyup = keyup;
+    // document.body.onkeyup = keyup;
+    function keyup(e)
+    {
+      if (e.code == "Space") alert(e.code);
+      else if (e.code == "Digit1") alert(e.code);
+      else if (e.code == "Digit2") alert(e.code);
+      else if (e.code == "Digit3") alert(e.code);
+    }
+  </script>
+
   </body>
 </html>
