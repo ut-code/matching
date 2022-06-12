@@ -2,34 +2,37 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Title</title>
+    <title>ホーム</title>
+    <link rel="icon" href="pic/favicon.ico">
     <link rel="stylesheet" href=style.css>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </head>
+
   <body class="font">
     <div style="text-align:center">
       <h1 style="font-size: 30px;">ドイツ語 単語帳</h1>
-      <img src="pic/castle.jpg" alt="城の画像" style="height:300px;">
-      <p style="font-size: 20px;">デッキ一覧</p>
+
+      <img src="pic/castle.jpg" alt="城の画像" style="height:300px; box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);">
+      <p style="font-size: 20px; text-decoration: underline;">デッキ一覧</p>
     </div>
     <% let i=0;
     for (const deck of deckList) { %>
-      <div style="text-align:center">
-        <%= deck.deckName %>
-        <form method="post" action="/practice">
+      <div style="text-align:center;">
+        <form method="post" name="a_form" action="/practice">
           <input name="deckId" type="hidden" value= <%= i %> />
           <div class="button008">
-          <button><a>始める</a></button>
+            <a href="#" onclick="document.a_form.submit();"><%= deck.deckName %> を学習する</a>
           </div>
         </form>
       </div>
     <% i++;
     } %>
   
-  <%
-    
-  %>
-  <%= todaysproverb %>
-
+  <blockquote>
+    <%= todaysproverb %>
+    <br>
+    <%= todaysproverbTL %>
+  </blockquote>
   <footer>
     <p class="text-center text-muted">© Copyright 2022 ut.code();</p>
   </footer>

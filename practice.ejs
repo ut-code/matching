@@ -2,14 +2,22 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>問題に解答するページ</title>
+    <title>学習ページ</title>
+    <link rel="icon" href="pic/favicon.ico">
     <link rel="stylesheet" href=style.css>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </head>
+
   <body class="font">
+    <div style="text-align: center; position: relative; left:150px;">
+      <script src="tooltip.js"></script>
+      使い方 <a href="#about" class="clickToolTip" style="line-height: 60px;">?</a></th>  
+      <!-- ツールチップで表示させる内容 -->
+      <p id="about" class="toolTip invisible">答えを見るを押すと、<br />その単語の意味が表示されます。<br />この操作はスペースキーでも行えます。<br />記憶状況に応じて<br />✕(1キー)、△(2キー)、○(3キー)<br />から一つを選び、<br />定着度合いを確認しましょう。</p>
+    </div>
     <div class="box11">
       <div id="item">
-        <% let question = wordList.pop() %>
-        <%= question.deutsch %>
+        
       </div>
       </div>
     <div>
@@ -20,11 +28,35 @@
         <button id="eval1" class="eval">○</button>
       </div>
   </div>
-  <script src="answer.js"></script>
+
+  <div id="deckId" title= <%= deckId %> />
+  <script src="script.js"></script>
+
+  <p style="line-height: 80px;"></p>
+
+  <!-- <a href="#" onclick="window.history.back(); return false;">直前のページに戻る</a> -->
+  <form method="get" name="a_form" action="/">
+    <!-- <input name="deckId" type="hidden" value= <%= wordList %> /> -->
+    <div class="button008">
+      <a href="#" onclick="document.a_form.submit();">戻る</a>
+    </div>
+  </form>
 
   <footer>
     <p class="text-center text-muted">© Copyright 2022 ut.code();</p>
   </footer>
+
+  <script>
+    window.onkeyup = keyup;
+    // document.body.onkeyup = keyup;
+    function keyup(e)
+    {
+      if (e.code == "Space") alert(e.code);
+      else if (e.code == "Digit1") alert(e.code);
+      else if (e.code == "Digit2") alert(e.code);
+      else if (e.code == "Digit3") alert(e.code);
+    }
+  </script>
 
   </body>
 </html>
