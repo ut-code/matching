@@ -30,7 +30,7 @@ class Word{
 let deckList = [];
 
 //test用
-deckList.push(new Deck("noun_Good..."));
+deckList.push(new Deck("noun_guten"));
 deckList[0].wordList.push(new Word("e Nacht", "night"));
 deckList[0].wordList.push(new Word("r Morgen", "morning"));
 
