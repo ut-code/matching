@@ -62,9 +62,17 @@
     font-size:70px;
 }
 
+#learn{
+    font-size:20px;
+}
+
 #learn:hover{
     background-color: #333c5e;
     color: #ffffff;
+}
+
+#see_answer{
+    font-size:20px;
 }
 
 #see_answer:hover{
