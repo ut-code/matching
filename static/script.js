@@ -66,11 +66,8 @@ let see_answer_func=async() =>{
 document.getElementById("see_answer").onclick = see_answer_func;
 
 //○△×が押された時の処理
-let evalfunc=async(i) =>
+let nextproblem = async() =>
 {
-    //評価を記録
-    eval[wordId] += i;
-
     //出た問題の番号を記録
     record[pointerOfRecord] = wordId;
     pointerOfRecord++;
@@ -85,9 +82,23 @@ let evalfunc=async(i) =>
     document.getElementById("see_answer").style.display = "block";
     return;
 };
-for(let i=0;i<3;i++){
-    document.getElementsByClassName("eval")[i].onclick = evalfunc;
+function evalfunc0(){
+    eval[wordId] += 0;
+    nextproblem();
 }
+function evalfunc1(){
+    eval[wordId] += 1;
+    nextproblem();
+}
+function evalfunc2(){
+    eval[wordId] += 2;
+    nextproblem();
+}
+
+document.getElementsByClassName("eval")[0].onclick = evalfunc0;
+document.getElementsByClassName("eval")[1].onclick = evalfunc1;
+document.getElementsByClassName("eval")[2].onclick = evalfunc2;
+
 
 //最初の問題表示
 wordId = chooseWordId();
@@ -98,7 +109,7 @@ window.onkeyup = keyup;
 function keyup(e)
 {
   if (e.code == "Space" && document.getElementById("see_answer").style.display === "block") see_answer_func();
-  else if (e.code == "Digit1" && document.getElementById("evals").style.display === "block") evalfunc(0);
-  else if (e.code == "Digit2" && document.getElementById("evals").style.display === "block") evalfunc(1);
-  else if (e.code == "Digit3" && document.getElementById("evals").style.display === "block") evalfunc(2);
+  else if (e.code == "Digit1" && document.getElementById("evals").style.display === "block") evalfunc0();
+  else if (e.code == "Digit2" && document.getElementById("evals").style.display === "block") evalfunc1();
+  else if (e.code == "Digit3" && document.getElementById("evals").style.display === "block") evalfunc2();
 }
